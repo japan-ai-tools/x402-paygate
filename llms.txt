@@ -1,0 +1,7 @@
+# x402 Paygate
+
+> Put a pay-per-call price (x402, HTTP 402) on any Python function. Unpaid calls get 402 with the price; paid calls get the result after the facilitator verifies and settles. Optional Bazaar discovery info so agents can find the tool. Python stdlib only, holds no keys, refuses mainnet unless allow_mainnet=True. Stage 1: tested with a fake facilitator only, no real payment yet. MIT.
+
+- paygate/x402.py: Paygate(fn, PriceTag(pay_to, price), facilitator, url, discovery=...).handle(headers, body) -> (status, headers, body); bazaar_extension(); HttpFacilitator; FakeFacilitator
+- paygate/server.py: `python -m paygate --tool module:function --pay-to 0xADDRESS --facilitator fake|https://...`
+- tests/test_paygate.py: 21 tests (no payment -> 402, valid -> 200 + receipt, replay refused, forged signature refused, settle failure -> no result)
