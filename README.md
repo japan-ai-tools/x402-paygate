@@ -7,8 +7,15 @@ Standard library only. No keys, no signing, no money handling inside: a facilita
 
 ## Status
 
-Stage 1 of 3. Tested with a fake facilitator only. It has not taken a real payment, on testnet or mainnet.
-Mainnet networks are refused unless you pass `allow_mainnet=True` yourself.
+Stage 2 of 3. One payment has gone through end to end on testnet: on 2026-11-02 a client paid 0.001 USDC on Base Sepolia (no real value) through the x402.org testnet facilitator, the gate ran the wrapped function and returned the result, and the receiving address balance rose by 0.001.
+Transaction: [`0x89d9bea0…922c96`](https://sepolia.basescan.org/tx/0x89d9bea08c29fa5cfdb132ae7d1ec65ccf7b6f3e93cdf42255e83b1b09922c96)
+
+It has not taken a mainnet payment. Mainnet networks are refused unless you pass `allow_mainnet=True` yourself.
+
+Independent implementation of the public x402 specification. Not affiliated with or endorsed by Coinbase or the x402 Foundation.
+Receiving payments in stablecoins can come with legal and tax duties where you live. Check them before you take real money; nothing here is legal or tax advice.
+
+日本語: 公開されている x402 の仕様に沿った独立した実装です(Coinbase・x402 Foundation とは関係ありません)。暗号資産での受け取りには、住んでいる国の法律・税の決まりがあります。本物のお金を受け取る前に確かめてください。法律・税務の助言ではありません。
 
 ## How a call goes (x402 v2)
 
